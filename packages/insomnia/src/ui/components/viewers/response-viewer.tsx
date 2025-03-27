@@ -329,7 +329,7 @@ export const ResponseViewer = ({
     return (
       <ResponseMultipartViewer
         bodyBuffer={overSizedBody}
-        contentType={contentType}
+        contentType={originalContentType}
         disableHtmlPreviewJs={disableHtmlPreviewJs}
         disablePreviewLinks={disablePreviewLinks}
         download={download}

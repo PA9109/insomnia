@@ -165,7 +165,7 @@ export const ResponseMultipartViewer: FC<Props> = ({
                     display: 'inline-block',
                   }}
                 >
-                  {selectedPart.title}
+                  {selectedPart.title || `Part ${selectedPart.id + 1}`}
                 </div>
                 <i className="fa fa-caret-down fa--skinny space-left" />
               </Button>
@@ -178,7 +178,7 @@ export const ResponseMultipartViewer: FC<Props> = ({
               >
                 <ItemContent
                   icon={selectedPart?.id === part.id ? 'check' : 'empty'}
-                  label={part.title}
+                  label={part.title || `Part ${part.id + 1}`}
                   onClick={() => setSelectedPart(part)}
                 />
               </DropdownItem>

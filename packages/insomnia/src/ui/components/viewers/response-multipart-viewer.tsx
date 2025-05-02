@@ -78,7 +78,7 @@ export const ResponseMultipartViewer: FC<Props> = ({
     showModal(WrapperModal, {
       title: (
         <span>
-          Headers for <code>{selectedPart.name}</code>
+          Headers for <code>{selectedPart.name || `Part ${selectedPart.id + 1}`}</code>
         </span>
       ),
       body: <ResponseHeadersViewer headers={[...selectedPart.headers]} />,
@@ -94,7 +94,7 @@ export const ResponseMultipartViewer: FC<Props> = ({
     const lastDir = window.localStorage.getItem('insomnia.lastExportPath');
     const dir = lastDir || window.app.getPath('desktop');
     const date = format(Date.now(), 'yyyy-MM-dd');
-    const filename = selectedPart.filename || `${selectedPart.name}_${date}`;
+    const filename = selectedPart.filename ? selectedPart.filename : selectedPart.name ? `${selectedPart.name}_${date}` : `Part ${selectedPart.id + 1}_${date}`;
     const options: SaveDialogOptions = {
       title: 'Save as File',
       buttonLabel: 'Save',
